@@ -31,9 +31,6 @@ public class ClienteService {
 	private ClienteRepository repo;
 
 	@Autowired
-	private CidadeRepository cidadeRepository;
-
-	@Autowired
 	private EnderecoRepository enderecoRepository;
 
 	public Cliente find(Integer id) {
@@ -52,7 +49,7 @@ public class ClienteService {
 		try {
 			repo.deleteById(id);
 		} catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityException("Não é possível excluir porque há entidades relacionadas", e);
+			throw new DataIntegrityException("Não é possível excluir porque há pedidos relacionadas", e);
 		}
 	}
 
